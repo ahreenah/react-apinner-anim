@@ -1,31 +1,77 @@
-.App {
-  text-align: center;
+.spinner-anim {
+  transition:.5s;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+g.first{
+  transform-origin:center;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+
+g.second{
+  
+    transform: scale(0.8) rotate(-80deg);
+    transform-origin: center;
+}
+
+g.third{
+  
+    transform: scale(0.6) rotate(-160deg);
+    transform-origin: center;
+}
+
+
+@keyframes rotating {
+  from {
+    transform: scale(0.6) rotate(360deg);
+  }
+  to {
+    transform: scale(0.6) rotate(0deg);
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+@keyframes rotating-md {
+  from {
+    transform: scale(0.8) rotate(420deg);
+  }
+  to {
+    transform: scale(0.8) rotate(60deg);
+  }
 }
 
-.App-link {
-  color: #61dafb;
+@keyframes opaq {
+  0% {
+    opacity: 0
+  }
+  50%{
+    opacity: 1
+  }
+  100% {
+    opacity: 0
+  }
+}
+
+@keyframes rotating-lg {
+  from {
+    transform: scale(1) rotate(480deg);
+  }
+  to {
+    transform: scale(1) rotate(120deg);
+  }
+}
+
+.rotating {
+  animation: rotating 2s linear infinite, opaq 2s linear infinite;
+}
+
+.rotating-md {
+  animation: rotating-md 2s linear infinite, opaq 2s linear infinite;
+  animation-delay:.15s;
+}
+
+
+.rotating-lg {
+  animation: rotating-lg 2s linear infinite, opaq 2s infinite;
+  animation-delay:.3s;
 }
 
 @keyframes App-logo-spin {
